@@ -1,0 +1,23 @@
+name: Docker Build Test
+
+# Kab chalana hai? (Jab bhi 'main' branch par push ho)
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # GitHub hume ek free Linux machine dega
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3 # Aapka code us Linux machine par copy karega
+
+    - name: Build Docker Image
+      run: docker build -t my-de-app:latest . # Check karega ki Dockerfile phat toh nahi rahi
+
+    - name: Run Docker Compose
+      run: docker compose up -d # Pura system chala kar dekhega
+
+    - name: Check Running Containers
+      run: docker ps # Dekhega ki dabba zinda hai ya nahi
