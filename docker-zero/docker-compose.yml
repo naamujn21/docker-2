@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  my-job:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      - USER_NAME=Amit
+    depends_on:
+      - db  # Matlab: "Pehle database chalu karo, phir meri script"
+
+  db:
+      image: postgres:15
+      environment:
+        - POSTGRES_PASSWORD=mysecretpassword
+      volumes:
+        - postgres_data:/var/lib/postgresql/data # <--- Ye hai magic line
+
+  volumes:
+    postgres_data: # Docker ko bataya ki ek permanent jagah reserve rakho
