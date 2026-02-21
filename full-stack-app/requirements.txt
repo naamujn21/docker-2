@@ -1,2 +1,7 @@
 streamlit
 psycopg2-binary
+sqlalchemy
+pydantic
+pandas
+pydantic[email]
+psycopg2-binary
