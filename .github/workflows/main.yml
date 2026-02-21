@@ -2,11 +2,8 @@ name: CI/CD to Docker Hub (Scheduled at 10 PM IST)
 
 on:
   schedule:
-    # 10:00 PM IST = 4:30 PM UTC
-    # Format: Minute Hour Day Month Day-of-week
     - cron: '30 16 * * *'
   
-  # Isse aap GitHub UI mein "Run workflow" button se manually bhi trigger kar sakte hain
   workflow_dispatch: 
 
 jobs:
